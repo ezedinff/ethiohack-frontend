@@ -1,0 +1,8 @@
+<perfect-scrollbar style="height: calc(100% - 33px);">
+  <div fxLayout="column" >
+    <div  fxLayoutAlign="space-around center" [style.margin]="'10px 0px'" >
+      <img width="100" [style.borderRadius]="'50%'" [src]="user?.profileImage">
+    </div>
+    <app-side-menu-item *ngFor="let menu of menus" [menu]="menu"> </app-side-menu-item>
+  </div>
+</perfect-scrollbar>

@@ -1,0 +1,47 @@
+@import "~@angular/material/theming";
+@import '../app/shared/containers/layout/layout.container';
+@import '../app/shared/components/side-menu/side-menu.component';
+@import '../app/shared/components/side-menu-item/side-menu-item.component';
+
+$mat-light-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-indigo, 50),
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: $black-12-opacity,
+  raised-button: white,
+  focused-button: $black-6-opacity,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+);
+
+@include mat-core();
+$primary : $mat-indigo;
+$accent  : $mat-orange;
+$warn    : $mat-red;
+
+$primary-app-primary: mat-palette($primary , 400);
+$primary-app-accent:  mat-palette($accent , 900);
+$primary-app-warn:    mat-palette($warn );
+$cdk-theme: mat-light-theme($primary-app-primary, $primary-app-accent, $primary-app-warn);
+
+app-side-menu{
+  $sidemenu-app-primary: mat-palette($primary , 400);
+  $sidemenu-app-accent:  mat-palette($accent , 900);
+  $sidemenu-app-warn:    mat-palette($warn );
+  $cdk-sidemenu-theme:   mat-dark-theme($sidemenu-app-primary, $sidemenu-app-accent,$sidemenu-app-warn);
+  @include mat-list-theme($cdk-sidemenu-theme);
+}
+
+app-side-menu-item{
+  @include sidemenu-item($cdk-theme, 20px)
+}
+@include layout($cdk-theme);
+@include angular-material-theme($cdk-theme);
+html{ height: 100%; }
+body{ height: 100%; margin: 0; padding: 0;}

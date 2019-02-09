@@ -1,0 +1,11 @@
+<mat-toolbar  class="mat-elevation-z4">
+  <button mat-icon-button (click)="sidenav.toggle()" *ngIf="matDrawerShow">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button mat-icon-button (click)="sidenav.toggle()" *ngIf="!matDrawerShow">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <app-toolbar-notification></app-toolbar-notification>
+  <app-user-menu [user]="user"></app-user-menu>
+</mat-toolbar>
